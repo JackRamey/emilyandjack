@@ -1,0 +1,18 @@
+/*!
+ * Author: Jack Ramey
+ *
+ * CSS style designed to accompany Twitter Bootstrap CSS
+ * framework.
+ *
+ */
+.tl {
+    text-align: left;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}

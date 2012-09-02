@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+    <title>Emily Webster & Jack Ramey</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+<head>
+<body>
+<div class="wrapper">
+    <div id=header>
+    <img class="center" src="static/img/banner.png">
+    <div id=navbar class="center">
+    <ul>
+        <li {% if request.path == url_for('index') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('index') }}">Welcome</a>
+        </li>
+        <li {% if request.path == url_for('story') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('story') }}">Our Story</a>
+        </li>
+        <li {% if request.path == url_for('engagement') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('engagement') }}">Our Engagement</a>
+            </li>
+        <li {% if request.path == url_for('weddingparty') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('weddingparty') }}">Wedding Party</a>
+        </li>
+        <li {% if request.path == url_for('details') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('details') }}">Wedding Details</a>
+        </li>
+        <li {% if request.path == url_for('registries') %}class="active"{% else %}class="inactive"{% endif %}>
+            <a href="{{ url_for('registries') }}">Registries</a>
+        </li>
+    </ul>
+    </div>
+    </div>
+    <div id=page>
+    {% block body %}{% endblock %}
+    </div>
+    <div class="push"></div>
+</div>
+    <div class="footer">FOOTER</div>
+</body>
+</html>

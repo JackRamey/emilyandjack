@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row-fluid">
+    <div class="span6 tc">
+        <img src="{{ url_for('static', filename='img/em.jpg') }}" width=300><br />
+        Emily<br />
+        <span class="label label-important">Bride</span>
+        <div class="row-fluid">
+            <div class="span4 tc">
+                <img src="{{ url_for('static', filename='img/jenna.jpg') }}"><br />
+                Jenna<br />
+                <span class="label label-important">Bridesmaid</span>
+            </div>
+            <div class="span4 tc">
+                <img src="{{ url_for('static', filename='img/bea.jpg') }}"><br />
+                Bea<br />
+                <span class="label label-important">Bridesmaid</span>
+            </div>
+            <div class="span4 tc">
+                <img src="{{ url_for('static', filename='img/natasha.jpg') }}"><br />
+                Natasha<br />
+                <span class="label label-important">Maid of Honor</span>
+            </div>
+        </div>
+    </div>
+    <div class="span6 tc">
+        <img src="{{ url_for('static', filename='img/jack.jpg') }}" width=300><br />
+        Jack<br />
+        <span class="label label-important">Groom</span>
+        <div class="row-fluid">
+            <div class="span4 tc">
+                <img src="{{ url_for('static', filename='img/nathan.jpg') }}"><br />
+                Nathan<br />
+                <span class="label label-important">Best Man</span>
+            </div>
+            <div class="span4 tc">
+                <img src="{{ url_for('static', filename='img/dan.jpg') }}"><br />
+                Dan<br />
+                <span class="label label-important">Groomsman</span>
+            </div>
+            <div class="span4 tc">Justin<br />
+                <span class="label label-important">Groomsman</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

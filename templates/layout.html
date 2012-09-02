@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Emily Webster & Jack Ramey</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/custom.css') }}">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+<head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="{{ url_for('index') }}">EmilyAndJack.com</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li {% if request.path == url_for('index') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('index') }}">Welcome</a>
+                        </li>
+                        <li {% if request.path == url_for('story') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('story') }}">Our Story</a>
+                        </li>
+                        <li {% if request.path == url_for('engagement') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('engagement') }}">Our Engagement</a>
+                            </li>
+                        <li {% if request.path == url_for('weddingparty') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('weddingparty') }}">Wedding Party</a>
+                        </li>
+                        <li {% if request.path == url_for('details') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('details') }}">Wedding Details</a>
+                        </li>
+                        <li {% if request.path == url_for('registries') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('registries') }}">Registries</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+    <!-- BODY CONTENT-->
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    <!-- Scripts go here for faster page loading (so I'm told...) -->
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+</html>
