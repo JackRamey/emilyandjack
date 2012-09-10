@@ -1,5 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
-from emilyandjack import app, db
+from emilyandjack import app
+from database import db
 
 class User(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -18,5 +19,8 @@ class User(db.Model):
 def init_users():
   jack = User('jack', 'omgcat', active=True)
   emily = User('emily', 'omgcat', active=True)
+  db.session.add(jack)
+  db.session.add(emily)
+  db.session.commit()
 
 
