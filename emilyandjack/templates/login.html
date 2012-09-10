@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+<br />
+<br />
+<div class="row">
+<div class="span6 offset3">
+<form class="form-horizontal" method=post>
+  <div class="control-group">
+    <label class="control-label" for="inputUser">User:</label>
+    <div class="controls">
+      <input type="text" id="inputUser" placeholder="User">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password:</label>
+    <div class="controls">
+      <input type="password" id="inputPassword" placeholder="Password">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn">Sign in</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+{% endblock %}

@@ -1,13 +1,24 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import *
 
 #create the app#
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_envvar('EJ_SETTINGS', silent=True)
+db = SQLAlchemy(app)
+login_manager = LoginManager()
 
 @app.route('/')
 def index():
     return render_template('welcome_page.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+  error = None
+  if request.method == 'POST':
+    flash(User.query.all())
+  return render_template('login.html', error=error)
 
 @app.route('/OurStory')
 def story():
@@ -32,3 +43,4 @@ def registries():
 if __name__ == '__main__':
     app.debug = True
     app.run('0.0.0.0')
+
