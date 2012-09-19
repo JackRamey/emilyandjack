@@ -40,10 +40,12 @@
                         </li>
                         {% endif %}
                     </ul>
+                    {% if not current_user.is_anonymous() %}
                     <div class="pull-right">
                         Hello, {{ current_user.displayname }} <a href="{{
                         url_for('logout') }}">logout</a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
