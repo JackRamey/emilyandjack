@@ -4,17 +4,17 @@
 <br />
 <div class="row">
 <div class="span6 offset3">
-<form class="form-horizontal" method=post>
+<form class="form-horizontal" action="{{ url_for('login') }}" method=post>
   <div class="control-group">
-    <label class="control-label" for="inputUser">User:</label>
+    <label class="control-label" for="username">User:</label>
     <div class="controls">
-      <input type="text" id="inputUser" placeholder="User">
+      <input type="text" name="username" placeholder="User">
     </div>
   </div>
   <div class="control-group">
-    <label class="control-label" for="inputPassword">Password:</label>
+    <label class="control-label" for="password">Password:</label>
     <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
+      <input type="password" name="password" placeholder="Password">
     </div>
   </div>
   <div class="control-group">
@@ -23,6 +23,10 @@
     </div>
   </div>
 </form>
+{% if error %}
+<div class="alert alert-error"><strong>Error:</strong> {{ error }}
+</div>
+{% endif %}
 </div>
 </div>
 {% endblock %}
