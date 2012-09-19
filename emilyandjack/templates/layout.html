@@ -40,6 +40,10 @@
                         </li>
                         {% endif %}
                     </ul>
+                    <div class="pull-right">
+                        Hello, {{ current_user.displayname }} <a href="{{
+                        url_for('logout') }}">logout</a>
+                    </div>
                 </div>
             </div>
         </div>

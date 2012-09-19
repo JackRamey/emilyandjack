@@ -2,9 +2,24 @@
 {% block body %}
 <img src="{{ url_for('static', filename='img/emilyandjackbanner.jpg') }}">
 <div class="container">
-<h3>September 5, 2012</h3>
-<p>Welcome! Thank you for visiting our wedding site! Feel free to take
-a look around.</p>
-</div>
+<!-- If a user is logged in allow them to add content -->
+{% if not user.is_anonymous() %}
+<br />
+<form action="{{ url_for('index') }}" method=post>
+    <div class="controls">
+        <textarea class="field span6" name="post" placeholder="New Post"
+                  rows="4"></textarea>
+    </div>
+    <div class="controls">
+        <button type="submit" class="btn">Submit</button>
+    </div>
+</form>
+{% endif %}
+<!--endif-->
+{% for post in posts %}
+<h3 class="nomargin">{{ post.date.strftime('%B %d, %Y') }}</h3>
+<h5 class="snugglup muted">By: {{ post.author.displayname }}</h5>
+<p>{{ post.body }}</p>
+{% endfor %}
 {% endblock %}
 

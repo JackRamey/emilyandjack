@@ -17,6 +17,14 @@
     text-align: right;
 }
 
+.nomargin {
+    margin: 0;
+}
+
 .primary {
     height: 600px;
+}
+
+.snugglup {
+    margin-top: -5px;
 }
