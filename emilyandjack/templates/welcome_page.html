@@ -17,9 +17,17 @@
 {% endif %}
 <!--endif-->
 {% for post in posts %}
+<div class="row">
+<div class="span12">
 <h3 class="nomargin">{{ post.date.strftime('%B %d, %Y') }}</h3>
 <h5 class="snugglup muted">By: {{ post.author.displayname }}</h5>
+</div>
+</div>
+<div class="row">
+<div class="span10 offset1">
 <p>{{ post.body }}</p>
+</div>
+</div>
 {% endfor %}
 {% endblock %}
 
