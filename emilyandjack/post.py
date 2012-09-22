@@ -18,10 +18,13 @@ class Post(db.Model):
         self.date = datetime.now()
 
     def __repr__(self):
-        return "<Post: %r, %r>" % (self.title, self.author) 
+        return "<Post: %r, %r>" % (self.id, self.author.username) 
 
     def get_id(self):
         return self.id
+
+def get_post(pid):
+        return Post.query.filter_by(id=pid).first()
 
 def init_posts():
     from user import User

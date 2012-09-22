@@ -5,6 +5,7 @@ from user import User, init_users
 from post import Post
 from database import db
 from flask.ext.login import *
+from datetime import date
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -15,7 +16,12 @@ def index():
             db.session.commit()
     #Populate the posts
     posts = Post.query.order_by(Post.date.desc())
-    return render_template('welcome_page.html', posts=posts, user=current_user)
+    days = days_remaining() 
+    percent = percent_remaining()
+    barstyle = bar_style()
+    return render_template('welcome_page.html', posts=posts,
+        user=current_user, days=days, percent=percent,
+        barstyle=barstyle)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -60,6 +66,30 @@ def details():
 @app.route('/Registries')
 def registries():
     return render_template('registries_page.html')
+
+def days_remaining():
+    enddate = date(2013, 7, 20)
+    return (enddate - date.today()).days
+
+def percent_remaining():
+    startdate = date(2012, 7, 27)
+    enddate = date(2013, 7, 20)
+    denom = float((enddate - startdate).days)
+    remain = float((enddate - date.today()).days)
+    percent_remaining = int(100 - (remain / denom) * 100)
+    if percent_remaining > 100:
+        percent_remaining = 100
+    return percent_remaining
+
+def bar_style():
+    pr = percent_remaining()
+    if pr < 33:
+        return "progress-success"
+    elif pr < 66:
+        return "progress-warning"
+    else:
+        return "progress-danger"
+        
 
 #DEBUG
 @app.route('/debug', methods=['GET', 'POST'])

@@ -2,8 +2,13 @@
 {% block body %}
 <img src="{{ url_for('static', filename='img/emilyandjackbanner.jpg') }}">
 <div class="container">
+<!-- Progress bar, countdown to wedding day -->
+<div class="progress {{ barstyle }} progress-striped">
+    <div class="bar" style="width: {{ percent }}%"></div>
+</div>
+<h4 class="tc">{{ days }} days until July 20th, 2013</h4>
 <!-- If a user is logged in allow them to add content -->
-{% if not user.is_anonymous() %}
+{% if user.is_admin() %}
 <br />
 <form action="{{ url_for('index') }}" method=post>
     <div class="controls">
@@ -18,13 +23,16 @@
 <!--endif-->
 {% for post in posts %}
 <div class="row">
-<div class="span12">
+<div class="span4">
 <h3 class="nomargin">{{ post.date.strftime('%B %d, %Y') }}</h3>
 <h5 class="snugglup muted">By: {{ post.author.displayname }}</h5>
 </div>
+{% if user.is_admin() %}
+<button class="btn btn-danger" type=button id={{ post.id }}>Delete</button>
+{% endif %}
 </div>
 <div class="row">
-<div class="span10 offset1">
+<div class="span12">
 <p>{{ post.body }}</p>
 </div>
 </div>

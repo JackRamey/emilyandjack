@@ -8,16 +8,19 @@ class User(db.Model):
     password = db.Column(db.String(256))
     displayname = db.Column(db.String(80))
     active = db.Column(db.Boolean)
+    admin = db.Column(db.Boolean)
 
-    def __init__(self, username, password, displayname, active=False):
+    def __init__(self, username, password, displayname, \
+            active=False, admin=False):
         self.username = username
         self.password = password
         self.displayname = displayname
         self.active = active
+        self.admin = admin
 
     def __repr__(self):
-        return '<User %r, %r, %r, %r>' % (self.username, \
-            self.password, self.displayname, self.active)
+        return '<User %r, %r, %r>' % (self.username, \
+            self.displayname, self.active)
 
     def is_authenticated(self):
         return True
@@ -28,6 +31,9 @@ class User(db.Model):
     def is_anonymous(self):
         return False
 
+    def is_admin(self):
+        return self.admin
+
     def get_id(self):
         return self.username
 
@@ -36,8 +42,8 @@ def load_user(userid):
     return User.query.filter_by(username=userid).first()
 
 def init_users():
-    jack = User('jack', 'omgcat', 'Jack', active=True)
-    emily = User('emily', 'omgcat', 'Emily', active=True)
+    jack = User('jack', 'omgcat', 'Jack', active=True, admin=True)
+    emily = User('emily', 'omgcat', 'Emily', active=True, admin=True)
     db.session.add(jack)
     db.session.add(emily)
     db.session.commit()
