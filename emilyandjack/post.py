@@ -1,6 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from emilyandjack import app
-from database import db
+from utilities import db
 from datetime import datetime
 
 class Post(db.Model):

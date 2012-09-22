@@ -3,7 +3,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from emilyandjack import app
 from user import User, init_users
 from post import Post
-from database import db
+from utilities import db
 from flask.ext.login import *
 from datetime import date
 
