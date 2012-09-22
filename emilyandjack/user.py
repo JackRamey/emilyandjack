@@ -1,4 +1,5 @@
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import AnonymousUser
 from emilyandjack import app
 from utilities import db, login_manager
 
@@ -9,7 +10,6 @@ class User(db.Model):
     displayname = db.Column(db.String(80))
     authenticated = db.Column(db.Boolean)
     active = db.Column(db.Boolean)
-    anonymous = db.Column(db.Boolean)
     admin = db.Column(db.Boolean)
 
     def __init__(self, username, password, displayname, \
@@ -20,7 +20,6 @@ class User(db.Model):
         self.displayname = displayname
         self.authenticated = authenticated
         self.active = active
-        self.anonymous = anonymous
         self.admin = admin
 
     def __repr__(self):
@@ -34,7 +33,7 @@ class User(db.Model):
         return self.active
 
     def is_anonymous(self):
-        return self.anonymous
+        return False
 
     def is_admin(self):
         return self.admin
@@ -42,19 +41,21 @@ class User(db.Model):
     def get_id(self):
         return self.username
 
+class Anonymous(AnonymousUser):
+    def is_admin(self):
+        return False
+
 @login_manager.user_loader
 def load_user(userid):
     return User.query.filter_by(username=userid).first()
 
-MyAnonymousUser = User('anon', 'xxx', 'Anonymous', authenticated=False, \
-    active=False, anonymous=True, admin=False)
-#login_manager.anonymous_user = MyAnonymousUser
+login_manager.anonymous_user = Anonymous
 
 def init_users():
     jack = User('jack', 'omgcat', 'Jack', authenticated=True, \
-        active=True, anonymous=False, admin=True)
+        active=True, admin=True)
     emily = User('emily', 'omgcat', 'Emily', authenticated=True, \
-        active=True, anonymous=False,  admin=True)
+        active=True, admin=True)
     db.session.add(jack)
     db.session.add(emily)
     db.session.commit()

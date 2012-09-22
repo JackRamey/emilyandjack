@@ -55,6 +55,10 @@ def story():
 def engagement():
     return render_template('engagement_page.html')
 
+@app.route('/Post/<id>', method['DELETE'])
+def post_delete():
+    pass
+
 @app.route('/WeddingParty')
 def weddingparty():
     return render_template('weddingparty_page.html')
