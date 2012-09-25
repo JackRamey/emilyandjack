@@ -1,8 +1,8 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
 from emilyandjack import app
-from user import User, init_users
-from post import Post
+from user import User
+from post import Post, get_post
 from utilities import db
 from flask.ext.login import *
 from datetime import date
@@ -55,9 +55,10 @@ def story():
 def engagement():
     return render_template('engagement_page.html')
 
-@app.route('/Post/<id>', method['DELETE'])
-def post_delete():
-    pass
+@app.route('/Post/<int:post_id>', methods=['DELETE'])
+def post_delete(post_id):
+    db.session.delete(get_post(post_id))
+    return redirect(url_for('index'))
 
 @app.route('/WeddingParty')
 def weddingparty():
