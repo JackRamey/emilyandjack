@@ -18,12 +18,10 @@ class Profile:
         return ('<Profile %r, %r, %r, %r, %r>') % (self.fname, self.lname, \
             self.nname, self.loc, self.desc)
 
-def load_from_json(json_file):
+def load_from_json(json_data):
     pdict = {}
     profiles_list = []
-    with open(json_file) as json_data:
-        data = json.load(json_data)
-        profiles_list = data['profiles']
+    profiles_list = json_data['profiles']
 
     for item in profiles_list:
         p = Profile(item)

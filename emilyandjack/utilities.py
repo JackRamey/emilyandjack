@@ -4,9 +4,6 @@ from flask.ext.login import *
 from emilyandjack import app
 from profile import Profile, load_from_json
 
-#static dir location
-STATIC_DIR = 'emilyandjack/static/'
-
 #Set up SQLAlchemy
 db = SQLAlchemy(app)
 
@@ -15,7 +12,11 @@ login_manager = LoginManager()
 login_manager.setup_app(app)
 
 #Set up profiles
-profiles = load_from_json(os.path.join(STATIC_DIR, 'json/profiles.json'))
+profiles = {}
+with app.open_resource('static/json/profiles.json') as json_data:
+    data = json.load(json_data)
+    profiles = load_from_json(data)
+
 
 #Full names dictionary
 fullnames = {
