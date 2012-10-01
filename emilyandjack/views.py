@@ -3,7 +3,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from emilyandjack import app
 from user import User
 from post import Post, get_post
-from utilities import db
+from utilities import db, fullnames, profiles
 from flask.ext.login import *
 from datetime import date
 
@@ -63,6 +63,12 @@ def post_delete(post_id):
 @app.route('/WeddingParty')
 def weddingparty():
     return render_template('weddingparty_page.html')
+
+@app.route('/WeddingParty/<name>')
+def weddingparty_info(name=None):
+    profile = profiles[name.lower()]
+    return render_template('weddingparty_page.html', name=name, \
+        profile=profile)
 
 @app.route('/WeddingDetails')
 def details():

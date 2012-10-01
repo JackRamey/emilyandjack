@@ -26,8 +26,8 @@
                         <li {% if request.path == url_for('engagement') %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('engagement') }}">Our Engagement</a>
                             </li>
-                        <li {% if request.path == url_for('weddingparty') %}class="active"{% else %}class="inactive"{% endif %}>
-                            <a href="{{ url_for('weddingparty') }}">Wedding Party</a>
+                        <li {% if request.path == url_for('weddingparty', name=None) %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('weddingparty', name=None) }}">Wedding Party</a>
                         </li>
                         {% if SHOW_DETAILS_PAGE == 1 %}
                         <li {% if request.path == url_for('details') %}class="active"{% else %}class="inactive"{% endif %}>

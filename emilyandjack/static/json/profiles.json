@@ -1,0 +1,45 @@
+{ "profiles": [
+    {
+        "fname": "Bea",
+        "lname": "Ramey",
+        "nname": "KAAAAAAA",
+        "loc": "Roseville, CA",
+        "desc": "Jack's big sis."
+    }, 
+    {
+        "fname": "Dan",
+        "lname": "Webster",
+        "nname": "Mozart's Idol",
+        "loc": "Vacaville, CA",
+        "desc": "Music afficianado and composer extraordinaire."
+    }, 
+    {
+        "fname": "Jenna",
+        "lname": "Robles",
+        "nname": "That's What She Said",
+        "loc": "San Diego, CA",
+        "desc": "SoCal native."
+    }, 
+    {
+        "fname": "Justin",
+        "lname": "Cocke",
+        "nname": "Grease Gun",
+        "loc": "Confidential",
+        "desc": "Wanted in 39 of the continental states of the USA."
+    }, 
+    {
+        "fname": "Natasha",
+        "lname": "Vocelka",
+        "nname": "P.I.C.",
+        "loc": "Natomas, CA",
+        "desc": "Long time friend and Emily's partner in crime."
+    }, 
+    {
+        "fname": "Nathan",
+        "lname": "Borgo",
+        "nname": "Borgo",
+        "loc": "V-tizzle Califizzle",
+        "desc": "You thought he was dead, didn't you?"
+    }
+    ]
+}
