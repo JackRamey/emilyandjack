@@ -20,7 +20,6 @@ class Profile:
 
 def load_from_json(json_data):
     pdict = {}
-    profiles_list = []
     profiles_list = json_data['profiles']
 
     for item in profiles_list:
