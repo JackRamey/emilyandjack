@@ -62,7 +62,7 @@ def post_delete(post_id):
 
 @app.route('/WeddingParty')
 def weddingparty():
-    return render_template('weddingparty_page.html')
+    return render_template('weddingparty_page.html', name="")
 
 @app.route('/WeddingParty/<name>')
 def weddingparty_info(name=None):
