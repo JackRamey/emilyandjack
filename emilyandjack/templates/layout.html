@@ -29,16 +29,12 @@
                         <li {% if request.path == url_for('weddingparty', name=None) %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('weddingparty', name=None) }}">Wedding Party</a>
                         </li>
-                        {% if SHOW_DETAILS_PAGE == 1 %}
                         <li {% if request.path == url_for('details') %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('details') }}">Wedding Details</a>
                         </li>
-                        {% endif %}
-                        {% if SHOW_REGISTRY_PAGE == 1 %}
                         <li {% if request.path == url_for('registries') %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('registries') }}">Registries</a>
                         </li>
-                        {% endif %}
                     </ul>
                     {% if not current_user.is_anonymous() %}
                     <p class="navbar-text pull-right">

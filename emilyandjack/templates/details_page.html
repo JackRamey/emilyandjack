@@ -1,4 +1,69 @@
 {% extends "layout.html" %}
 {% block body %}
-<p>We have no idea what's going on!</p>
+<h2>Venue:</h2>
+<div class="row">
+<div class="span4">
+<ul class="unstyled">
+    <li><div class="row">
+        <div class="span1"><strong>Date:</strong>
+        </div>
+        <div class="span3">July 20th, 2013
+        </div>
+    </div></li>
+    <br class="small"/>
+    <li><div class="row">
+        <div class="span1"><strong>Location:</strong>
+        </div>
+        <div class="span3">
+            <address>
+<a href="http://www.oldsugarmill.com/"><strong>The Old Sugar
+Mill</strong></a><br />
+35265 Willow Ave<br />
+Clarksburg, CA 95612<br />
+            </address>
+        </div>
+    </div></li>
+<p>We immediately fell in love with the charm of the Old Sugar Mill. The
+gorgeous red brick building caught our eyes right away. Between the
+vineyards and the timelessness of the structure we feel that this is going 
+to be the perfect place to say "I do".
+</p>
+<ul>
+</div>
+<div class="span8 tc">
+<img src="{{ url_for('static', filename='img/old_sugar_mill.jpg') }}" width=400px>
+</div>
+</div>
+<h2>Accommodations:</h2>
+<p>Here are a few hotels in Elk Grove that are near the venue. Please book in advance as we have no way of predicting availability.</p>
+<ul class="unstyled">
+<div class="row">
+<li><div class="span4">
+<address>
+<a href="http://www.hiexpress.com/elkgrove-ca"><strong>Holiday Inn Express
+&amp; Suites</strong></a><br />
+2460 Maritime Dr.<br />
+Elk Grove, CA 95758<br />
+<small>** 12 miles from venue. ~22 min drive.</small>
+</address>
+</div></li>
+<li><div class="span4">
+<address>
+<a
+href="http://hamptoninn3.hilton.com/en/hotels/california/hampton-inn-and-suites-sacramento-elk-grove-laguna-i-5-SACEGHX/index.html"><strong>Hampton Inn &amp; Suites</strong></a><br />
+2305 Long Port Ct.<br />
+Elk Grove, CA 95758<br />
+<small>** 11 miles from venue. ~20 min drive.</small>
+</address>
+</div></li>
+<li><div class="span4">
+<address>
+<a href="http://hiltongardeninn3.hilton.com/en/hotels/california/hilton-garden-inn-sacramento-elk-grove-SMFEGGI/index.html"><strong>Hilton Garden Inn</strong></a><br />
+9241 Laguna Springs Drive<br />
+Elk Grove, CA 95758<br />
+<small>** 16 miles from venue. ~28 min drive.</small>
+</address>
+</div></li>
+</div>
+</ul>
 {% endblock %}

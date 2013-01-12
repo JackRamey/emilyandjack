@@ -78,6 +78,10 @@ def details():
 def registries():
     return render_template('registries_page.html')
 
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
 def days_remaining():
     enddate = date(2013, 7, 20)
     return (enddate - date.today()).days

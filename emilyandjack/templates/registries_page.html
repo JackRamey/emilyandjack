@@ -1,4 +1,24 @@
 {% extends "layout.html" %}
 {% block body %}
-<p>REGISTRIES</p>
+<br />
+<p>We've registered at the following sites:<p>
+<ul>
+    <li><a href="http://www.crateandbarrel.com/Gift-Registry/Guest/View-Registry.aspx?grid=4979274"><img src="http://a.c-b.co/assets/logo/cratelogo.png"></a>
+    </li>
+    <li><a
+    href="http://www1.macys.com/registry/wedding/guest/?registryId=210299">
+<img src="http://www.avcenterprises.com/wedding/images/stories/Macys_Logo.png" width="200px"></a>
+    </li>
+    <li><a href="http://www.amazon.com/registry/wedding/3U27UY5H3LIOQ"><img src="http://goodereader.com/blog/uploads/images/Amazon-Logo.png" width="250px"></a>
+    </li>
+</ul>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="Z6HJD57FDD388">
+<input type="image"
+src="{{ url_for('static', filename='img/honeymoon_fund.png') }}" border="0"
+name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0"
+src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
 {% endblock %}
