@@ -1,5 +1,0 @@
-SECRET_KEY = 'superdupersecretdevkeyyouwouldneverguess'
-SQLALCHEMY_DATABASE_URI = 'sqlite:////Users/jackramey/Documents/Programming/python/emilyandjack/emilyandjack/emilyandjack.db'
-SHOW_DETAIL_PAGE = 0
-SHOW_REGISTRY_PAGE = 0
-
