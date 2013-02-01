@@ -36,7 +36,7 @@ def login():
             if user.password == request.form['password']:
                 login_user(user);
                 flash('Log in status: EPIC SUCCESS!')
-                return redirect(url_for('index'));
+                return redirect(url_for('news'));
             else:
                 error = 'Bad login.'
         else:
