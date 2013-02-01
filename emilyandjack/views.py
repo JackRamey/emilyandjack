@@ -60,7 +60,7 @@ def engagement():
 @app.route('/Post/<int:post_id>', methods=['DELETE'])
 def post_delete(post_id):
     db.session.delete(get_post(post_id))
-    return redirect(url_for('index'))
+    return redirect(url_for('news'))
 
 @app.route('/Wallboard', methods=['GET', 'POST'])
 def wallboard():
