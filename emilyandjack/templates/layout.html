@@ -15,17 +15,20 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="{{ url_for('index') }}">EmilyAndJack.com</a>
+                <a class="brand" href="{{ url_for('news') }}">EmilyAndJack.com</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li {% if request.path == url_for('index') %}class="active"{% else %}class="inactive"{% endif %}>
-                            <a href="{{ url_for('index') }}">Welcome</a>
+                        <li {% if request.path == url_for('news') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('news') }}">News</a>
                         </li>
                         <li {% if request.path == url_for('story') %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('story') }}">Our Story</a>
                         </li>
                         <li {% if request.path == url_for('engagement') %}class="active"{% else %}class="inactive"{% endif %}>
                             <a href="{{ url_for('engagement') }}">Our Engagement</a>
+                        </li>
+                        <li {% if request.path == url_for('wallboard') %}class="active"{% else %}class="inactive"{% endif %}>
+                            <a href="{{ url_for('wallboard') }}">Wallboard</a>
                         </li>
                         {% if not current_user.is_anonymous() %}
                         <li {% if request.path == url_for('weddingparty', name=None) %}class="active"{% else %}class="inactive"{% endif %}>
@@ -61,5 +64,7 @@
     </div>
     <!-- Scripts go here for faster page loading (so I'm told...) -->
     <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-modalmanager.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-modal.js') }}"></script>
 </body>
 </html>

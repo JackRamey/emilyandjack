@@ -3,12 +3,14 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from emilyandjack import app
 from user import User
 from post import Post, get_post
+from comment import Comment
 from utilities import db, fullnames, profiles
 from flask.ext.login import *
 from datetime import date
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/News', methods=['GET', 'POST'])
+def news():
     if request.method == 'POST':
         if request.form['post'] != '':
             post = Post(request.form['post'], current_user)
@@ -59,6 +61,17 @@ def engagement():
 def post_delete(post_id):
     db.session.delete(get_post(post_id))
     return redirect(url_for('index'))
+
+@app.route('/Wallboard', methods=['GET', 'POST'])
+def wallboard():
+    if request.method == 'POST':
+        if request.form['author'] != "" \
+                and request.form['body'] != "":
+            comment = Comment(request.form['author'], request.form['body'])
+            db.session.add(comment)
+            db.session.commit()
+    comments = Comment.query.order_by(Comment.date.desc())
+    return render_template('wallboard_page.html', comments=comments)
 
 @app.route('/WeddingParty')
 def weddingparty():

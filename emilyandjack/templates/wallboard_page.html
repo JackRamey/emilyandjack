@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<img src="http://i.imgur.com/xFM3nwd.png">
+<div class="container">
+<!-- Progress bar, countdown to wedding day -->
+<!-- If a user is logged in allow them to add content -->
+<br />
+<h3>Leave a story about us or a message for everyone to read!</h3>
+<form action="{{ url_for('wallboard') }}" method=post>
+    <div class="controls">
+        <p><input class="field span6" name="author" type="text"
+            placeholder="From:"></p>
+        <p><textarea class="field span6" name="body" placeholder=""
+                  rows="4"></textarea></p>
+    </div>
+    <div class="controls">
+        <button type="submit" class="btn">Submit</button>
+    </div>
+</form>
+<!--endif-->
+{% for comment in comments %}
+<div class="row">
+<div class="span4">
+<h3 class="nomargin">{{ comment.date.strftime('%B %d, %Y') }}</h3>
+<h5 class="snugglup muted">From: {{ comment.author }}</h5>
+</div>
+</div>
+<div class="row">
+<div class="span12">
+<p>{{ comment.body }}</p>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
+
