@@ -62,7 +62,7 @@ def post_delete(post_id):
     db.session.delete(get_post(post_id))
     return redirect(url_for('news'))
 
-@app.route('/Wallboard', methods=['GET', 'POST'])
+@app.route('/YourStories', methods=['GET', 'POST'])
 def wallboard():
     if request.method == 'POST':
         if request.form['author'] != "" \

@@ -28,7 +28,7 @@
                             <a href="{{ url_for('engagement') }}">Our Engagement</a>
                         </li>
                         <li {% if request.path == url_for('wallboard') %}class="active"{% else %}class="inactive"{% endif %}>
-                            <a href="{{ url_for('wallboard') }}">Wallboard</a>
+                            <a href="{{ url_for('wallboard') }}">Your Stories</a>
                         </li>
                         {% if not current_user.is_anonymous() %}
                         <li {% if request.path == url_for('weddingparty', name=None) %}class="active"{% else %}class="inactive"{% endif %}>
