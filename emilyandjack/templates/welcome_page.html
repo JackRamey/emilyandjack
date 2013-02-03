@@ -28,7 +28,9 @@
 <h5 class="snugglup muted">By: {{ post.author.displayname }}</h5>
 </div>
 {% if user.is_admin() %}
-<button class="btn btn-danger" type=button id={{ post.id }}>Delete</button>
+<form action="{{ url_for('post_delete', post_id=post.id) }}" method=post>
+<button class="btn btn-danger" type=submit id={{ post.id }}>Delete</button>
+</form>
 {% endif %}
 </div>
 <div class="row">

@@ -57,9 +57,11 @@ def story():
 def engagement():
     return render_template('engagement_page.html')
 
-@app.route('/Post/<int:post_id>', methods=['DELETE'])
+@app.route('/Post/Delete/<int:post_id>', methods=['GET', 'POST'])
 def post_delete(post_id):
-    db.session.delete(get_post(post_id))
+    if(current_user.is_admin()):
+        db.session.delete(get_post(post_id))
+        db.session.commit()
     return redirect(url_for('news'))
 
 @app.route('/YourStories', methods=['GET', 'POST'])
