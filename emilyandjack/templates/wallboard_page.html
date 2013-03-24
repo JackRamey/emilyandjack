@@ -27,7 +27,11 @@
 </div>
 <div class="row">
 <div class="span12">
-<p>{{ comment.body }}</p>
+<p>
+{% filter markdown %}
+{{ comment.body }}
+{% endfilter %}
+</p>
 </div>
 </div>
 {% endfor %}
