@@ -17,6 +17,10 @@
     text-align: right;
 }
 
+.vc {
+    vertical-align: middle;
+}
+
 .nomargin {
     margin: 0;
 }
