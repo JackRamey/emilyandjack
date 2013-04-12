@@ -8,11 +8,13 @@ class Comment(db.Model):
     author = db.Column(db.String(100))
     body = db.Column(db.String(4096))
     date = db.Column(db.DateTime)
+    ip_addr = db.Column(db.String(24))
 
-    def __init__(self, author, body):
+    def __init__(self, author, body, ip_addr):
         self.author = author
         self.body = body
         self.date = datetime.now()
+        self.ip_addr = ip_addr
 
     def __repr__(self):
         return "<Comment: %r, %r>" % (self.id, self.date)

@@ -68,10 +68,13 @@ def post_delete(post_id):
 def wallboard():
     if request.method == 'POST':
         if request.form['author'] != "" \
-                and request.form['body'] != "":
-            comment = Comment(request.form['author'], request.form['body'])
+                and request.form['body'] != "" \
+                and request.form['bot_stop'] == '7':
+            comment = Comment(request.form['author'], request.form['body'], request.remote_addr)
             db.session.add(comment)
             db.session.commit()
+        elif request.form['bot_stop'] != '7':
+            flash('You did not answer the question properly. Sorry.')
     comments = Comment.query.order_by(Comment.date.desc())
     return render_template('wallboard_page.html', comments=comments)
 
