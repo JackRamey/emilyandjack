@@ -13,7 +13,10 @@ from datetime import date
 def news():
     if request.method == 'POST':
         if request.form['post'] != '':
-            post = Post(request.form['post'], current_user)
+            html_enabled = False
+            if 'html_enabled' in request.form:
+                html_enabled = True
+            post = Post(request.form['post'], current_user, html_enabled)
             db.session.add(post)
             db.session.commit()
     #Populate the posts

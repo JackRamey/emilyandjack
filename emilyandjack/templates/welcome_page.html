@@ -15,6 +15,9 @@
         <textarea class="field span6" name="post" placeholder="New Post"
                   rows="4"></textarea>
     </div>
+    <label class="checkbox">
+          <input type="checkbox" name="html_enabled">Use HTML
+    </label>
     <div class="controls">
         <button type="submit" class="btn">Submit</button>
     </div>
@@ -36,9 +39,13 @@
 <div class="row">
 <div class="span12">
 <p>
+{% if post.html_enabled %}
+{{ post.body|safe }}
+{% else %}
 {% filter markdown %}
 {{ post.body }}
 {% endfilter %}
+{% endif %}
 </p>
 </div>
 </div>
