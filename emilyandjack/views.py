@@ -4,6 +4,7 @@ from emilyandjack import app
 from user import User
 from post import Post, get_post
 from comment import Comment
+from link import Link, LinkClick, get_link
 from utilities import db, fullnames, profiles
 from flask.ext.login import *
 from datetime import date
@@ -26,7 +27,7 @@ def news():
     barstyle = bar_style()
     return render_template('welcome_page.html', posts=posts,
         user=current_user, days=days, percent=percent,
-        barstyle=barstyle)
+        barstyle=barstyle, get_link=get_link)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -125,7 +126,15 @@ def bar_style():
         return "progress-warning"
     else:
         return "progress-danger"
-        
+
+#LOGGING
+@app.route('/link_click/<link_id>', methods=['POST'])
+def link_click(link_id):
+    l = get_link(link_id)
+    lc = LinkClick(request.remote_addr, l)
+    db.session.add(lc)
+    db.session.commit()
+    return redirect(l.link);
 
 #DEBUG
 @app.route('/debug', methods=['GET', 'POST'])
